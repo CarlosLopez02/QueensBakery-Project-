@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "CustomersData";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Customers Managment</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Customers Managment">
+    <meta name="author" content="Carlos Lopez">
+    <link rel="stylesheet" href="~/CSS/DataManagment.css" />
+
+</head>
+
+<body>
+
+
+    <section id="Customers-Add">
+        <form action="javascript:void(0);" method="POST" onsubmit="addCustomer()">
+            <h4 id="formTitle">Add Customers</h4>
+            <ul>
+                <li>
+                    <label for="customerID"><strong>Customer ID:</strong></label>
+                    <input type="text" id="customerID" placeholder="New Customer ID">
+                </li>
+                <li>
+                    <label for="customerName"><strong>Name:</strong></label>
+                    <input type="text" id="customerName" placeholder="New Name" />
+                </li>
+                <li>
+                    <label for="customerBirth"><strong>birth:</strong></label>
+                    <input type="date" id="customerBirth" placeholder="New birth" />
+                </li>
+                <li>
+                    <label for="customerAge"><strong>Age:</strong></label>
+                    <input type="text" id="customerAge" placeholder="New Age" />
+                </li>
+                <li>
+                    <label for="cusGenre"><strong>Genre:</strong> </label><br />
+                    <select id="cusGenre" class="form-control" required>
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="Masculine">Masculine</option>
+                        <option value="Femenine">Femenine</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="customerphone"><strong>PhoneNumber:</strong></label>
+                    <input type="text" id="customerphone" placeholder="New phone Number" />
+                </li>
+                <li>
+                    <label for="cusAdr"><strong>Adress:</strong></label>
+                    <input type="text" id="cusAdr" placeholder="New Adress" />
+                </li>
+                <li>
+                    <label for="promocus"><strong>Promotion/discount:</strong></label>
+                    <input type="text" id="promocus" placeholder="New Promotion/discount" />
+                    <input type="submit" value="Add">
+                </li>
+
+            </ul>
+        </form>
+    </section>
+
+    <section id="Customer-Edit">
+
+        <form action="javascript:void(0);" onsubmit="updateCustomer()">
+            <h4>Edit Costumers</h4>
+            <!---->
+            <label for="EditcusID"><strong>Customer ID:</strong></label>
+            <input type="text" id="EditcusID" placeholder="" readonly>
+            <!---->
+            <label for="editcusName"><strong>Name:</strong></label>
+            <input type="text" id="editcusName" placeholder="" />
+            <!---->
+            <label for="editCustomerbirth"><strong>Birth:</strong></label>
+            <input type="text" id="editCustomerbirth" placeholder="" />
+            <!---->
+            <label for="editcusAge"><strong>Age:</strong></label>
+            <input type="text" id="editcusAge" placeholder="" />
+            <!---->
+            <label for="editcusGenre"><strong>Genre:</strong> </label><br />
+            <input type="text" id="editcusGenre" placeholder="" />
+            <!---->
+            <label for="editcusphone"><strong>PhoneNumber:</strong></label>
+            <input type="text" id="editcusphone" placeholder="" />
+            <!---->
+            <label for="editcusAdr"><strong>Adress:</strong></label>
+            <input type="text" id="editcusAdr" placeholder="" />
+            <!---->
+            <label for="editpromocus"><strong>Promotion/discount:</strong></label>
+            <input type="text" id="editpromocus" placeholder="" />
+
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="close">&#10006;</a>
+        </form>
+    </section>
+
+    
+    <section id="AllCustomers">
+        <h2>All Customers</h2>
+        <div id="table_container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>birth</th>
+                        <th>Age</th>
+                        <th>Genre</th>
+                        <th>Phone</th>
+                        <th>Adress</th>
+                        <th>Promo/Discounts</th>
+                        <th>Edit Customers</th>
+                        <th>Delete Customers</th>
+                    </tr>
+                </thead>
+                <tbody id="DetCustomers">
+                </tbody>
+            </table>
+        </div>
+</section>
+      
+
+    <p id="counter"></p>
+
+
+    <script src="~/Scripts/App/Customers.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+
+        getCustomers();
+
+
+    </script>
+
+</body>
+
+</html>
+

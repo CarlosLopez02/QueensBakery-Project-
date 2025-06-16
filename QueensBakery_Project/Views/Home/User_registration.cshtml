@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "User_registration";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QueenBakery Project</title>
+    <meta charset="UTF-8">
+    <meta name="carlos" content="Login page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/CSS/Style_registration.css">
+</head>
+
+<body>
+    <h1>Queen's Bakery User Registration<img id="chef-icon" src="https://cdn.iconscout.com/icon/free/png-256/free-chef-icon-download-in-svg-png-gif-file-formats--restaurant-baker-male-bakery-labor-day-pack-festival-days-icons-2366073.png" /></h1>
+
+    <div id="Container">
+        <div id="sub-container">
+            <form action="javascript:void(0);" method="POST" onsubmit="AddUser()">
+                <label for="Code">Enter your code :</label><br>
+                <input type="text" id="User-code" name="usercode" placeholder="Code"><br>
+                <!---->
+                <label for="password">Enter your password :</label><br>
+                <input type="password" id="User-pass" name="userpassword"  placeholder="Password"><br>
+                <!---->
+                <label for="ID">Enter your ID: </label><br />
+                <input type="text" id="User-ID" name="userId"  placeholder="ID" /><br />
+                <!---->
+                <label for="Name">Enter your First Name: </label><br />
+                <input type="text" id="User-name" name="username"  placeholder="Name"/><br />
+                <!---->
+                <label for="Genre">Enter your Genre: </label><br />
+                <select id="User-Genre" name="genre" class="form-control" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Masculine">Masculine</option>
+                    <option value="Femenine">Femenine</option>
+                </select>
+                <!---->
+                <label for="Email">Enter your e-mail: </label><br />
+                <input type="text" id="User-email" name="useremail" placeholder="E-mail" /><br />
+                <!---->
+                <label for="Phone">Enter your phone number: </label><br />
+                <input type="text" id="User-phone" name="userphone"  placeholder="Phone number" /><br />
+                <!---->
+                <label for="Rol">Enter your Rol: </label><br />
+                <select id="User-rol" name="rol" class="form-control" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="admin">Administrator</option>
+                    <option value="manager">Manager</option>
+                    <option value="barista">Barista</option>
+                </select>
+                <!---->
+               
+                <input id="submit-btn" type="submit" value="Register">
+                <p id="error-message"></p>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="~/Scripts/App/Users.js" asp-append-version="true"></script>
+
+
+</body>
+</html>
+

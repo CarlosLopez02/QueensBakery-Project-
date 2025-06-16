@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "UserDataAdmin";
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User data Managment</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="User Managment Admin">
+    <meta name="author" content="Carlos Lopez">
+    <link rel="stylesheet" href="~/CSS/DataManagment.css" />
+
+</head>
+
+<body>
+
+    <section id="add_user">
+        <form action="javascript:void(0);" method="POST" onsubmit="AddUser()">
+            <h4 id="formTitle">Add User</h4>
+            <label for="User-code">Enter your code :</label><br>
+            <input type="text" id="User-code" name="usercode" placeholder="Code"><br>
+            <!---->
+            <label for="User-pass">Enter your password :</label><br>
+            <input type="password" id="User-pass" name="userpassword" placeholder="Password"><br>
+            <!---->
+            <label for="User-ID">Enter your ID: </label><br />
+            <input type="text" id="User-ID" name="userId" placeholder="ID" /><br />
+            <!---->
+            <label for="User-name">Enter your Full Name: </label><br />
+            <input type="text" id="User-name" name="username" placeholder="Name" /><br />
+            <!---->
+            <label for="genre">Enter your Genre: </label><br />
+            <select id="User-Genre" name="genre" class="form-control" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="Masculine">Masculine</option>
+                <option value="Femenine">Femenine</option>
+            </select>
+            <!---->
+            <label for="User-email">Enter your e-mail: </label><br />
+            <input type="text" id="User-email" name="useremail" placeholder="E-mail" /><br />
+            <!---->
+            <label for="User-phone">Enter your phone number: </label><br />
+            <input type="text" id="User-phone" name="userphone" placeholder="Phone number" /><br />
+            <!---->
+            <label for="User-rol">Enter your Rol: </label><br />
+            <select id="User-rol" name="rol" class="form-control" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="admin">Administrator</option>
+                <option value="manager">Manager</option>
+                <option value="barista">Barista</option>
+            </select>
+            <!---->
+
+            <input id="submit-btn" type="submit" value="Register">
+        </form>
+    </section>
+    <br />
+    <section id="Edit-user">
+        <form action="javascript:void(0);" onsubmit="updateUsers()">
+            <h4>Edit User</h4>
+            <!---->
+            <label for="EditUcode"><strong>Code:</strong></label>
+            <input type="text" id="EditUcode" placeholder="" readonly>
+            <!---->
+            <br />
+            <label for="editUpass"><strong>Password:</strong></label>
+            <input type="text" id="editUpass" placeholder="" />
+            <!---->
+            <br />
+            <label for="editUid"><strong>ID:</strong></label>
+            <input type="text" id="editUid" placeholder="" />
+            <!---->
+            <br />
+            <label for="editUname"><strong>Name:</strong></label>
+            <input type="text" id="editUname" placeholder="" />
+            <!---->
+            <br />
+            <label for="editUgen"><strong>Genre:</strong></label>
+            <input type="text" id="editUgen" placeholder="" />
+            <!---->
+            <br />
+            <label for="editUemail"><strong>E-mail:</strong></label>
+            <input type="text" id="editUemail" placeholder="" /><br />
+            <!---->
+            <br />
+            <label for="editUphone"><strong>Phone Number:</strong></label>
+            <input type="text" id="editUphone" placeholder="" /><br />
+            <!---->
+            <br />
+            <label for="editURol"><strong>Rol:</strong></label>
+            <input type="text" id="editURol" placeholder="" readonly /><br />
+            <!---->
+            <input type="submit" value="Save">
+            <a onclick="closeInputAdmin()" aria-label="close">&#10006;</a>
+        </form>
+    </section>
+
+    <section id="All users">
+        <h2>All Users</h2>
+        <div id="table_container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Password</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Genre</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Rol</th>
+                        <th>Edit Employee</th>
+                        <th>Delete Employee</th>
+                    </tr>
+                </thead>
+                <tbody id="DetUser">
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <p id="counter1"></p>
+
+    <script src="~/Scripts/App/Users.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getUsers()
+        
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+

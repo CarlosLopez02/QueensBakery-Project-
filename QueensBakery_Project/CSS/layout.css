@@ -1,0 +1,11 @@
+﻿@font-face{
+    font-family: bakery-font;
+    src: url('../Fonts/Local Bakery.ttf');
+}
+
+.navbar {
+    background-color: rgb(160, 89, 53);
+    font-family: bakery-font;
+    font-size: 20px;
+
+}

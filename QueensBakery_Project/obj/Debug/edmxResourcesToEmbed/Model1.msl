@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QueensBakeryModelStoreContainer" CdmEntityContainer="QueensBakeryEntities">
+    <EntitySetMapping Name="Bakery_clients">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Bakery_clients">
+        <MappingFragment StoreEntitySet="Bakery_clients">
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Client_name" ColumnName="Client_name" />
+          <ScalarProperty Name="Client_birth" ColumnName="Client_birth" />
+          <ScalarProperty Name="Client_age" ColumnName="Client_age" />
+          <ScalarProperty Name="Client_genre" ColumnName="Client_genre" />
+          <ScalarProperty Name="Client_phone" ColumnName="Client_phone" />
+          <ScalarProperty Name="Client_address" ColumnName="Client_address" />
+          <ScalarProperty Name="ID_promo_desc" ColumnName="ID_promo_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bakery_Desserts">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Bakery_Desserts">
+        <MappingFragment StoreEntitySet="Bakery_Desserts">
+          <ScalarProperty Name="Dessert_id" ColumnName="Dessert_id" />
+          <ScalarProperty Name="Dessert_description" ColumnName="Dessert_description" />
+          <ScalarProperty Name="Dessert_type" ColumnName="Dessert_type" />
+          <ScalarProperty Name="Dessert_category" ColumnName="Dessert_category" />
+          <ScalarProperty Name="ID_promo_disc" ColumnName="ID_promo_disc" />
+          <ScalarProperty Name="Dessert_Unit_price" ColumnName="Dessert_Unit_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bakery_Drinks">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Bakery_Drinks">
+        <MappingFragment StoreEntitySet="Bakery_Drinks">
+          <ScalarProperty Name="Drink_code" ColumnName="Drink_code" />
+          <ScalarProperty Name="Drink_desc" ColumnName="Drink_desc" />
+          <ScalarProperty Name="ID_promo_disc" ColumnName="ID_promo_disc" />
+          <ScalarProperty Name="Drink_price" ColumnName="Drink_price" />
+          <ScalarProperty Name="Drink_type" ColumnName="Drink_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Bill">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Client_Bill">
+        <MappingFragment StoreEntitySet="Client_Bill">
+          <ScalarProperty Name="Client_ID" ColumnName="Client_ID" />
+          <ScalarProperty Name="Bill_Code" ColumnName="Bill_Code" />
+          <ScalarProperty Name="Bill_orderNum" ColumnName="Bill_orderNum" />
+          <ScalarProperty Name="Payment_methods" ColumnName="Payment_methods" />
+          <ScalarProperty Name="ID_promo_disc" ColumnName="ID_promo_disc" />
+          <ScalarProperty Name="Bill_date" ColumnName="Bill_date" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Sales_taxes" ColumnName="Sales_taxes" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client_Order">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Client_Order">
+        <MappingFragment StoreEntitySet="Client_Order">
+          <ScalarProperty Name="employee_ID" ColumnName="employee_ID" />
+          <ScalarProperty Name="Order_quantity_Dessert" ColumnName="Order_quantity_Dessert" />
+          <ScalarProperty Name="Order_quantity_Drinks" ColumnName="Order_quantity_Drinks" />
+          <ScalarProperty Name="Order_number" ColumnName="Order_number" />
+          <ScalarProperty Name="Order_clientID" ColumnName="Order_clientID" />
+          <ScalarProperty Name="Order_date" ColumnName="Order_date" />
+          <ScalarProperty Name="Order_dessertId" ColumnName="Order_dessertId" />
+          <ScalarProperty Name="Order_drinkCode" ColumnName="Order_drinkCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment_methods">
+      <EntityTypeMapping TypeName="QueensBakeryModel.payment_methods">
+        <MappingFragment StoreEntitySet="payment_methods">
+          <ScalarProperty Name="ID_method" ColumnName="ID_method" />
+          <ScalarProperty Name="pay_descrip" ColumnName="pay_descrip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Promos_discounts">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Promos_discounts">
+        <MappingFragment StoreEntitySet="Promos_discounts">
+          <ScalarProperty Name="ID_promo" ColumnName="ID_promo" />
+          <ScalarProperty Name="PD_Percentage" ColumnName="PD_Percentage" />
+          <ScalarProperty Name="Descript" ColumnName="Descript" />
+          <ScalarProperty Name="start_d" ColumnName="start_d" />
+          <ScalarProperty Name="End_d" ColumnName="End_d" />
+          <ScalarProperty Name="PD_Type" ColumnName="PD_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID_rol" ColumnName="ID_rol" />
+          <ScalarProperty Name="Rol_name" ColumnName="Rol_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users_Bakerye">
+      <EntityTypeMapping TypeName="QueensBakeryModel.Users_Bakery">
+        <MappingFragment StoreEntitySet="Users_Bakery">
+          <ScalarProperty Name="User_code" ColumnName="User_code" />
+          <ScalarProperty Name="User_password" ColumnName="User_password" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="User_name" ColumnName="User_name" />
+          <ScalarProperty Name="User_genre" ColumnName="User_genre" />
+          <ScalarProperty Name="User_email" ColumnName="User_email" />
+          <ScalarProperty Name="User_phone" ColumnName="User_phone" />
+          <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

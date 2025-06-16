@@ -1,0 +1,71 @@
+﻿@font-face {
+    font-family: Bakery-font;
+    src: url('/Fonts/Local Bakery.ttf');
+}
+
+@font-face {
+    font-family: BakeryIcons-font;
+    src: url('/Fonts/Bakery.ttf');
+}
+
+
+body {
+    background-image: url("https://cdn.vectorstock.com/i/500p/57/28/bakery-seamless-background-vector-27135728.jpg");
+}
+
+h1 {
+    font-family: Bakery-font;
+    text-align: center;
+    margin-top: 6.0vw;
+    margin-bottom: 13.0vw;
+    font-size: 3.5vw;
+}
+
+label {
+    font-family: Bakery-font;
+    font-size: 1.5vw;
+}
+input[type="text"],
+input[type="password"]{
+    display: flex;
+    
+}
+
+select{
+    margin-bottom: 2.0vw;
+}
+
+#submit-btn {
+    margin-left: 4.5vw;
+}
+
+
+#Container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+    margin-top: -6.0vw;
+    margin-bottom: 10.0vw;
+    
+}
+
+#sub-container {
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    width: 35.0vw;
+    height: 60.0vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2.0vw solid transparent;
+    border-radius: 1.0vw;
+    box-shadow: 0vw 0vw 1.5vw 1.2vw rgb(255, 255, 255);
+   
+}
+
+#chef-icon {
+    width: 7.0vw;
+    height: auto;
+    
+}

@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "ClientOrderData";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ClientOrder Managment</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Order Managment">
+    <meta name="author" content="Carlos Lopez">
+    <link rel="stylesheet" href="~/CSS/DataManagment.css" />
+
+</head>
+
+<body>
+
+
+    <section id="Order-Add">
+        <form action="javascript:void(0);" method="POST" onsubmit="addOrder()">
+            <h4 id="formTitle">Add Order</h4>
+            <ul>
+                <li>
+                    <label for="ordernum"><strong>Order Number:</strong></label>
+                    <input type="text" id="ordernum" placeholder="New Order Number">
+                </li>
+                <li>
+                    <label for="clientID"><strong>Client ID:</strong></label>
+                    <input type="text" id="clientID" placeholder="New Client ID">
+                </li>
+                <li>
+                    <label for="OrderDate"><strong>Order Date:</strong></label>
+                    <input type="date" id="OrderDate" placeholder="New order date" />
+                </li>
+                <li>
+                    <label for="desserID"><strong>Dessert ID:</strong></label>
+                    <input type="text" id="dessertID" placeholder="New Dessert ID" />
+                </li>
+                <li>
+                    <label for="drinkcode"><strong>Drink Code:</strong></label>
+                    <input type="text" id="drinkcode" placeholder="New Drink Code" />
+                </li>
+                <li>
+                    <label for="QuanDrinks"><strong>Number of drinks:</strong> </label>
+                    <input type="text" id="QuanDrinks" placeholder="New Quantity"/>
+                </li>
+                <li>
+                    <label for="QuanDessert"><strong>Number of desserts:</strong></label>
+                    <input type="text" id="QuanDessert" placeholder="New Quantity" />
+                  
+                </li>
+                <li>
+                    <label for="EmployeeID"><strong>Employee ID:</strong></label>
+                    <input type="text" id="EmployeeID" placeholder="" />
+                    <input type="submit" value="Add">
+                </li>
+            </ul>
+        </form>
+    </section>
+
+    <section id"subtotal">
+        <label for="subtotalV" ><strong>Subtotal:  </strong></label>
+        <input type="text" id="subtotalV" placeholder="Subtotal" readonly />
+    </section>
+
+   
+
+    <section id="Order-Edit">
+
+        <form action="javascript:void(0);" onsubmit="updateOrder()">
+            <h4>Edit Order</h4>
+            <!---->
+            <label for="EditOrdernum"><strong>Order Number:</strong></label>
+            <input type="text" id="EditOrdernum" placeholder="" readonly>
+            <!---->
+            <label for="EditClientID"><strong>Client ID:</strong></label>
+            <input type="text" id="EditClientID" placeholder="">
+            <!---->
+            <label for="editOrderdate"><strong>Date:</strong></label>
+            <input type="text" id="editOrderdate" placeholder="" />
+            <!---->
+            <label for="editdessertID"><strong>Dessert ID:</strong></label>
+            <input type="text" id="editdessertID" placeholder="" />
+            <!---->
+            <label for="editdrinkCode"><strong>Drink Code:</strong></label>
+            <input type="text" id="editdrinkCode" placeholder="" />
+            <!---->
+            <label for="editQuanDri"><strong>Number of drinks:</strong> </label><br />
+            <input type="text" id="editQuanDri" placeholder="" />
+            <!---->
+            <label for="editQuanDes"><strong>Number of desserts:</strong></label>
+            <input type="text" id="editQuanDes" placeholder="" />
+            <!---->
+            <label for="editEmployeeID"><strong>Employee ID:</strong></label>
+            <input type="text" id="editEmployeeID" placeholder="" />
+
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="close">&#10006;</a>
+        </form>
+    </section>
+
+   
+
+    <section id="AllOrders">
+        <h2>All Orders</h2>
+        <div id="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order Number</th>
+                    <th>Client ID</th>
+                    <th>Date</th>
+                    <th>Dessert ID</th>
+                    <th>Drink Code</th>
+                    <th>Number of Drinks</th>
+                    <th>Number of Desserts</th>
+                    <th>EmployeeID</th>
+                    <th>Edit Order</th>
+                    <th>Delete Order</th>
+                </tr>
+            </thead>
+            <tbody id="DetOrder">
+            </tbody>
+        </table>
+          </div>
+    </section>
+
+    <p id="counter"></p>
+
+
+
+
+    <script src="~/Scripts/App/Order.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+
+        getOrder();
+
+
+    </script>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "BaristaPanel";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Barista Panel</title>
+    <meta charset="UTF-8">
+    <meta name="carlos" content="Barista Panel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/CSS/DataPanel.css">
+</head>
+
+<body>
+    <h1>Barista Panel<img id="Barista_img" src="https://cdn-icons-png.flaticon.com/512/2811/2811997.png" /></h1>
+
+    <div id="parentContainer">
+        <div id="OptionContainer">
+            <ul>
+                <li>
+                    <p>Enter customer information</p>
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/CustomersData';">Enter customer information</button>
+                </li>
+                <li>
+                    <p>Enter customer Order</p>
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/ClientOrderData';">Enter Order information</button>
+                </li>
+                <li>
+                    <p>Create Invoices</p>
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/InvoiceData';">Create invoice</button>
+                    <br />
+
+
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+
+        localStorage.setItem("myRol", 3);
+
+       
+
+    </script>
+
+
+    <script src="~/Scripts/App/Invoice.js" asp-append-version="true"></script>
+    <script src="~/Scripts/App/Customers.js" asp-append-version="true"></script>
+    <script src="~/Scripts/App/Order.js" asp-append-version="true"></script>
+
+
+
+
+
+
+</body>
+</html>
+

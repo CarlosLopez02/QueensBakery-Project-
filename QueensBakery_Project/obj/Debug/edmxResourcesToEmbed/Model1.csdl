@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QueensBakeryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bakery_clients">
+    <Key>
+      <PropertyRef Name="Client_ID" />
+    </Key>
+    <Property Name="Client_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Client_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Client_birth" Type="DateTime" Precision="0" />
+    <Property Name="Client_age" Type="Int32" Nullable="false" />
+    <Property Name="Client_genre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Client_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Client_address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_promo_desc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Promos_discounts" Relationship="Self.BakeryClients_promo_discounts" FromRole="Bakery_clients" ToRole="Promos_discounts" />
+    <NavigationProperty Name="Client_Order" Relationship="Self.ClienOrder_Clients" FromRole="Bakery_clients" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Bakery_Desserts">
+    <Key>
+      <PropertyRef Name="Dessert_id" />
+    </Key>
+    <Property Name="Dessert_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Dessert_description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Dessert_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dessert_category" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_promo_disc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Dessert_Unit_price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Promos_discounts" Relationship="Self.Dessert_promo_discount" FromRole="Bakery_Desserts" ToRole="Promos_discounts" />
+    <NavigationProperty Name="Client_Order" Relationship="QueensBakeryModel.OrddessertId_dessertId" FromRole="Bakery_Desserts" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Bakery_Drinks">
+    <Key>
+      <PropertyRef Name="Drink_code" />
+    </Key>
+    <Property Name="Drink_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Drink_desc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ID_promo_disc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Drink_price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Drink_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Promos_discounts" Relationship="Self.Drinks_promo_disc" FromRole="Bakery_Drinks" ToRole="Promos_discounts" />
+    <NavigationProperty Name="Client_Order" Relationship="QueensBakeryModel.Orddrinkcode_drinkCode" FromRole="Bakery_Drinks" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Client_Bill">
+    <Key>
+      <PropertyRef Name="Bill_Code" />
+    </Key>
+    <Property Name="Bill_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Bill_orderNum" Type="Int32" Nullable="false" />
+    <Property Name="Payment_methods" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ID_promo_disc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Bill_date" Type="DateTime" Precision="0" />
+    <Property Name="Subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Sales_taxes" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="payment_methods1" Relationship="Self.ClientBill_paymentMethods" FromRole="Client_Bill" ToRole="payment_methods" />
+    <NavigationProperty Name="Promos_discounts" Relationship="Self.ClientBill_promo_discount" FromRole="Client_Bill" ToRole="Promos_discounts" />
+    <Property Name="Client_ID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Client_Order" Relationship="QueensBakeryModel.BOrdNum_ordNum" FromRole="Client_Bill" ToRole="Client_Order" />
+  </EntityType>
+  <EntityType Name="Client_Order">
+    <Key>
+      <PropertyRef Name="Order_number" />
+    </Key>
+    <Property Name="Order_number" Type="Int32" Nullable="false" />
+    <Property Name="Order_clientID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Order_date" Type="DateTime" Precision="0" />
+    <Property Name="Order_dessertId" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Order_drinkCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Bakery_clients" Relationship="Self.ClienOrder_Clients" FromRole="Client_Order" ToRole="Bakery_clients" />
+    <Property Name="Order_quantity_Drinks" Type="Int32" />
+    <Property Name="Order_quantity_Dessert" Type="Int32" />
+    <NavigationProperty Name="Bakery_Desserts" Relationship="QueensBakeryModel.OrddessertId_dessertId" FromRole="Client_Order" ToRole="Bakery_Desserts" />
+    <NavigationProperty Name="Bakery_Drinks" Relationship="QueensBakeryModel.Orddrinkcode_drinkCode" FromRole="Client_Order" ToRole="Bakery_Drinks" />
+    <NavigationProperty Name="Client_Bill" Relationship="QueensBakeryModel.BOrdNum_ordNum" FromRole="Client_Order" ToRole="Client_Bill" />
+    <Property Name="employee_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="payment_methods">
+    <Key>
+      <PropertyRef Name="ID_method" />
+    </Key>
+    <Property Name="ID_method" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pay_descrip" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Client_Bill" Relationship="Self.ClientBill_paymentMethods" FromRole="payment_methods" ToRole="Client_Bill" />
+  </EntityType>
+  <EntityType Name="Promos_discounts">
+    <Key>
+      <PropertyRef Name="ID_promo" />
+    </Key>
+    <Property Name="ID_promo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PD_Percentage" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Descript" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="start_d" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="End_d" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PD_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Bakery_clients" Relationship="Self.BakeryClients_promo_discounts" FromRole="Promos_discounts" ToRole="Bakery_clients" />
+    <NavigationProperty Name="Bakery_Desserts" Relationship="Self.Dessert_promo_discount" FromRole="Promos_discounts" ToRole="Bakery_Desserts" />
+    <NavigationProperty Name="Bakery_Drinks" Relationship="Self.Drinks_promo_disc" FromRole="Promos_discounts" ToRole="Bakery_Drinks" />
+    <NavigationProperty Name="Client_Bill" Relationship="Self.ClientBill_promo_discount" FromRole="Promos_discounts" ToRole="Client_Bill" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID_rol" />
+    </Key>
+    <Property Name="ID_rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rol_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users_Bakery" Relationship="Self.User_Roles" FromRole="Roles" ToRole="Users_Bakery" />
+  </EntityType>
+  <EntityType Name="Users_Bakery">
+    <Key>
+      <PropertyRef Name="User_code" />
+    </Key>
+    <Property Name="User_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="User_name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="User_genre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="User_email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="User_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Rol_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.User_Roles" FromRole="Users_Bakery" ToRole="Roles" />
+  </EntityType>
+  <Association Name="BakeryClients_promo_discounts">
+    <End Role="Promos_discounts" Type="Self.Promos_discounts" Multiplicity="0..1" />
+    <End Role="Bakery_clients" Type="Self.Bakery_clients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promos_discounts">
+        <PropertyRef Name="ID_promo" />
+      </Principal>
+      <Dependent Role="Bakery_clients">
+        <PropertyRef Name="ID_promo_desc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClienOrder_Clients">
+    <End Role="Bakery_clients" Type="Self.Bakery_clients" Multiplicity="1" />
+    <End Role="Client_Order" Type="Self.Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bakery_clients">
+        <PropertyRef Name="Client_ID" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Order_clientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Dessert_promo_discount">
+    <End Role="Promos_discounts" Type="Self.Promos_discounts" Multiplicity="0..1" />
+    <End Role="Bakery_Desserts" Type="Self.Bakery_Desserts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promos_discounts">
+        <PropertyRef Name="ID_promo" />
+      </Principal>
+      <Dependent Role="Bakery_Desserts">
+        <PropertyRef Name="ID_promo_disc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Drinks_promo_disc">
+    <End Role="Promos_discounts" Type="Self.Promos_discounts" Multiplicity="0..1" />
+    <End Role="Bakery_Drinks" Type="Self.Bakery_Drinks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promos_discounts">
+        <PropertyRef Name="ID_promo" />
+      </Principal>
+      <Dependent Role="Bakery_Drinks">
+        <PropertyRef Name="ID_promo_disc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientBill_paymentMethods">
+    <End Role="payment_methods" Type="Self.payment_methods" Multiplicity="1" />
+    <End Role="Client_Bill" Type="Self.Client_Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment_methods">
+        <PropertyRef Name="ID_method" />
+      </Principal>
+      <Dependent Role="Client_Bill">
+        <PropertyRef Name="Payment_methods" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClientBill_promo_discount">
+    <End Role="Promos_discounts" Type="Self.Promos_discounts" Multiplicity="0..1" />
+    <End Role="Client_Bill" Type="Self.Client_Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promos_discounts">
+        <PropertyRef Name="ID_promo" />
+      </Principal>
+      <Dependent Role="Client_Bill">
+        <PropertyRef Name="ID_promo_disc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="User_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="Users_Bakery" Type="Self.Users_Bakery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="ID_rol" />
+      </Principal>
+      <Dependent Role="Users_Bakery">
+        <PropertyRef Name="Rol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QueensBakeryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bakery_clients" EntityType="Self.Bakery_clients" />
+    <EntitySet Name="Bakery_Desserts" EntityType="Self.Bakery_Desserts" />
+    <EntitySet Name="Bakery_Drinks" EntityType="Self.Bakery_Drinks" />
+    <EntitySet Name="Client_Bill" EntityType="Self.Client_Bill" />
+    <EntitySet Name="Client_Order" EntityType="Self.Client_Order" />
+    <EntitySet Name="payment_methods" EntityType="Self.payment_methods" />
+    <EntitySet Name="Promos_discounts" EntityType="Self.Promos_discounts" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Users_Bakerye" EntityType="Self.Users_Bakery" />
+    <AssociationSet Name="BakeryClients_promo_discounts" Association="Self.BakeryClients_promo_discounts">
+      <End Role="Promos_discounts" EntitySet="Promos_discounts" />
+      <End Role="Bakery_clients" EntitySet="Bakery_clients" />
+    </AssociationSet>
+    <AssociationSet Name="ClienOrder_Clients" Association="Self.ClienOrder_Clients">
+      <End Role="Bakery_clients" EntitySet="Bakery_clients" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="Dessert_promo_discount" Association="Self.Dessert_promo_discount">
+      <End Role="Promos_discounts" EntitySet="Promos_discounts" />
+      <End Role="Bakery_Desserts" EntitySet="Bakery_Desserts" />
+    </AssociationSet>
+    <AssociationSet Name="Drinks_promo_disc" Association="Self.Drinks_promo_disc">
+      <End Role="Promos_discounts" EntitySet="Promos_discounts" />
+      <End Role="Bakery_Drinks" EntitySet="Bakery_Drinks" />
+    </AssociationSet>
+    <AssociationSet Name="ClientBill_paymentMethods" Association="Self.ClientBill_paymentMethods">
+      <End Role="payment_methods" EntitySet="payment_methods" />
+      <End Role="Client_Bill" EntitySet="Client_Bill" />
+    </AssociationSet>
+    <AssociationSet Name="ClientBill_promo_discount" Association="Self.ClientBill_promo_discount">
+      <End Role="Promos_discounts" EntitySet="Promos_discounts" />
+      <End Role="Client_Bill" EntitySet="Client_Bill" />
+    </AssociationSet>
+    <AssociationSet Name="User_Roles" Association="Self.User_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users_Bakery" EntitySet="Users_Bakerye" />
+    </AssociationSet>
+    <AssociationSet Name="OrddessertId_dessertId" Association="QueensBakeryModel.OrddessertId_dessertId">
+      <End Role="Bakery_Desserts" EntitySet="Bakery_Desserts" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="Orddrinkcode_drinkCode" Association="QueensBakeryModel.Orddrinkcode_drinkCode">
+      <End Role="Bakery_Drinks" EntitySet="Bakery_Drinks" />
+      <End Role="Client_Order" EntitySet="Client_Order" />
+    </AssociationSet>
+    <AssociationSet Name="BOrdNum_ordNum" Association="QueensBakeryModel.BOrdNum_ordNum">
+      <End Role="Client_Order" EntitySet="Client_Order" />
+      <End Role="Client_Bill" EntitySet="Client_Bill" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="OrddessertId_dessertId">
+    <End Type="QueensBakeryModel.Bakery_Desserts" Role="Bakery_Desserts" Multiplicity="0..1" />
+    <End Type="QueensBakeryModel.Client_Order" Role="Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bakery_Desserts">
+        <PropertyRef Name="Dessert_id" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Order_dessertId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Orddrinkcode_drinkCode">
+    <End Type="QueensBakeryModel.Bakery_Drinks" Role="Bakery_Drinks" Multiplicity="0..1" />
+    <End Type="QueensBakeryModel.Client_Order" Role="Client_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bakery_Drinks">
+        <PropertyRef Name="Drink_code" />
+      </Principal>
+      <Dependent Role="Client_Order">
+        <PropertyRef Name="Order_drinkCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BOrdNum_ordNum">
+    <End Type="QueensBakeryModel.Client_Order" Role="Client_Order" Multiplicity="1" />
+    <End Type="QueensBakeryModel.Client_Bill" Role="Client_Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client_Order">
+        <PropertyRef Name="Order_number" />
+      </Principal>
+      <Dependent Role="Client_Bill">
+        <PropertyRef Name="Bill_orderNum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

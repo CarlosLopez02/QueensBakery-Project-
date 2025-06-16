@@ -1,0 +1,42 @@
+﻿body {
+    background-image: url("https://cdn.vectorstock.com/i/500p/57/28/bakery-seamless-background-vector-27135728.jpg");
+}
+
+#OptionContainer {
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    width: 35.0vw;
+    height: 35.0vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2.0vw solid transparent;
+    border-radius: 1.0vw;
+    box-shadow: 0vw 0vw 1.5vw 1.2vw rgb(255, 255, 255);
+}
+
+#parentContainer{
+    display:flex;
+    justify-content:center;
+    justify-items: center;
+}
+
+
+#manager_img {
+    width: 7.0vw;
+    height: auto;
+}
+
+#Admin_img {
+    width: 7.0vw;
+    height: auto;
+}
+
+#Barista_img {
+    width: 7.0vw;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+}

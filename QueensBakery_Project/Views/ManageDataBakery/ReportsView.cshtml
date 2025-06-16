@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "ReportsView";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Reports</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Reports">
+    <meta name="author" content="Carlos Lopez">
+    <link rel="stylesheet" href="~/CSS/DataManagment.css" />
+
+</head>
+
+<body>
+
+    <section id="searchBaristaOrders">
+        <form action="javascript:void(0);" onsubmit="searchbaristaOrders()">
+            <label for="idB">Search: </label>
+            <input type="text" id="idB" placeholder="Enter value" />
+            <input type="submit" value="Search" />
+        </form>
+    </section>
+
+    <section id="Barista_Orders">
+        <h2>Barista Orders</h2>
+        <div id="table_container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>EmployeeID</th>
+                        <th>Order Number</th>
+                        <th>Client ID</th>
+                        <th>Date</th>
+                        <th>Dessert ID</th>
+                        <th>Drink Code</th>
+                        <th>Number of Drinks</th>
+                        <th>Number of Desserts</th>
+                    </tr>
+                </thead>
+                <tbody id="DetOrderB">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <p id="counter"></p>
+
+    <section>
+        <h2>Desserts Sales</h2>
+        <div id="table_container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>IdDesserts</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>UnitPrice</th>
+                        <th>Discount/promotion</th>
+                        <th>Number sold</th>
+                        <th>Total Orders</th>
+                    </tr>
+                </thead>
+                <tbody id="DessertsTable">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <br />
+
+
+    <section>
+        <h2>Drinks Sales</h2>
+        <div id="table_container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>DrinkCode</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>UnitPrice</th>
+                        <th>Discount/promotion</th>
+                        <th>Number sold</th>
+                        <th>Total Orders</th>
+                    </tr>
+                </thead>
+                <tbody id="DrinksTable">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2>Invoices</h2>
+        <div id="table_container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bill Code</th>
+                        <th>Order Number</th>
+                        <th>Payment Methods</th>
+                        <th>Promo Discount</th>
+                        <th>Bill Date</th>
+                        <th>Subtotal</th>
+                        <th>Sales Taxes</th>
+                        <th>Total</th>
+                        <th>Client ID</th>
+                    </tr>
+                </thead>
+                <tbody id="InvoicesTable">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="~/Scripts/App/Reports.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+
+        gettables()
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+

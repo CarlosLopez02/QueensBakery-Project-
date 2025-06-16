@@ -1,0 +1,92 @@
+﻿@font-face {
+    font-family: Bakery-font;
+    src: url('/Fonts/Local Bakery.ttf');
+}
+
+@font-face {
+    font-family: BakeryIcons-font;
+    src: url('/Fonts/Bakery.ttf');
+}
+
+
+body {
+    background-image: url("https://cdn.vectorstock.com/i/500p/57/28/bakery-seamless-background-vector-27135728.jpg");
+}
+
+table, thead, tr, th, td {
+    border: thin solid gainsboro;
+    border-collapse: collapse;
+    background-color: white;
+   
+}
+
+table {
+    width: 100%
+}
+
+th {
+    margin: 0;
+    padding: 0.2vw 2.1vw 0.2vw 2.1vw;
+    background-color: rgb(160, 89, 53);
+}
+
+tr{
+    text-align:center;
+
+}
+
+/*.formTitle {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+}*/
+
+
+section {
+    font-family: Bakery-font;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2.0vw solid transparent;
+    border-radius: 1.0vw;
+    box-shadow: 0vw 0vw 1.5vw 1.2vw rgb(255, 255, 255);
+   
+}
+
+
+input[type="text"] {
+    margin-bottom: 0.2vw;
+}
+
+#table_container {
+    width: 100%;
+    overflow-x: scroll;
+    margin: 0 auto;
+}
+
+/* 
+Hide sections from forms
+*/
+
+#Edit-user {
+    display: none;
+}
+
+
+#Edit-userBarista {
+    display: none;
+}
+
+#Customer-Edit {
+    display: none;
+}
+
+
+#Drinks-Edit {
+    display: none;
+}
+
+#Dessert-Edit {
+    display: none;
+}

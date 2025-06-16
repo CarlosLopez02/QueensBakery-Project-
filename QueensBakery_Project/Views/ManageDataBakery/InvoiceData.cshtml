@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "InvoiceData";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Invoice Managment</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Invoice Managment">
+    <meta name="author" content="Carlos Lopez">
+    <link rel="stylesheet" href="~/CSS/DataManagment.css" />
+
+</head>
+
+<body>
+
+
+    <section id="Invoice-Add">
+        <form action="javascript:void(0);" method="POST" onsubmit="addInvoice()">
+            <h4 class="formTitle">Add Invoice</h4>
+            <ul>
+                <li>
+                    <label for="InvoiceID"><strong>Bill Code:</strong></label>
+                    <input type="text" id="InvoiceID" placeholder="New Bill Code">
+                </li>
+                <li>
+                    <label for="CustomerID"><strong>Client ID:</strong></label>
+                    <input type="text" id="CustomerID" placeholder="New Client ID">
+                </li>
+                <li>
+                    <label for="OrderNum"><strong>Order number:</strong></label>
+                    <input type="text" id="OrderNum" placeholder="New order number" />
+                </li>
+                <li>
+                    <label for="Payment"><strong>Payment Method:</strong></label>
+                    <input type="text" id="Payment" placeholder="New Payment method" />
+                </li>
+                <li>
+                    <label for="Promo"><strong>Promo/Discount:</strong></label>
+                    <input type="text" id="Promo" placeholder="New promo/discount" />
+                </li>
+                <li>
+                    <label for="DateInvoice"><strong>Date:</strong> </label>
+                    <input type="date" id="DateInvoice" />
+                    <input type="submit" value="Add">
+                </li>
+                @*<li>
+                    <label for="subtotal"><strong>Subtotal:</strong></label>
+                    <input type="text" id="subtotal" placeholder="New subtotal" />
+                </li>*@
+                @*<li>
+                    <label for="isv"><strong>Taxes:</strong></label>
+                    <input type="text" id="isv" placeholder="Sale Taxes" />
+                </li>
+                <li>
+                    <label for="total"><strong>Total:</strong></label>
+                    <input type="text" id="total" placeholder="Total" />
+                    <input type="submit" value="Add">
+                </li>*@
+
+            </ul>
+        </form>
+    </section>
+
+    <section id="Invoice-Edit">
+
+        <form action="javascript:void(0);" onsubmit="updateInvoice()">
+            <h4 class="formTitle">Edit Invoice</h4>
+            <!---->
+            <label for="EditinCode"><strong>Bill code:</strong></label>
+            <input type="text" id="EditinCode" placeholder="" readonly>
+            <!---->
+            <label for="EditCustomer"><strong>Client ID:</strong></label>
+            <input type="text" id="EditCustomer" placeholder="">
+            <!---->
+            <label for="editOrdernum"><strong>Order Number:</strong></label>
+            <input type="text" id="editOrdernum" placeholder="" />
+            <!---->
+            <label for="editPayment"><strong>Payment methods:</strong></label>
+            <input type="text" id="editPayment" placeholder="" />
+            <!---->
+            <label for="editPromo"><strong>Promotion/discount:</strong></label>
+            <input type="text" id="editPromo" placeholder="" />
+            <!---->
+            <label for="editDate"><strong>Date:</strong> </label><br />
+            <input type="text" id="editDate" placeholder="" />
+            <!---->
+            <label for="editsubtotal"><strong>Subtotal:</strong></label>
+            <input type="text" id="editsubtotal" placeholder="" />
+            <!---->
+            <label for="edittaxes"><strong>Sale taxes:</strong></label>
+            <input type="text" id="edittaxes" placeholder="" />
+            <!---->
+            <label for="edittotal"><strong>Total:</strong></label>
+            <input type="text" id="edittotal" placeholder="" />
+
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="close">&#10006;</a>
+        </form>
+    </section>
+
+
+    <section id="SearchInvoices">
+        <form action="javascript:void(0);" onsubmit="searchInvoices()">
+            <h4 class="formTitle">Search Invoices related to customer</h4>
+            <p>Enter the customer ID to search for their invoices.</p>
+            <label for="SearchInvoices"><strong>Search:</strong></label>
+            <input type="text" id="SearcInvoices" placeholder="Enter value" />
+            <input type="submit" value="Search" />
+        </form>
+    </section>
+    <br />
+
+    <section id="AllInvoices">
+        <h2 class="formTitle">All Invoices</h2>
+        <div id="table_container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Client ID</th>
+                        <th>Num.Order</th>
+                        <th>Payment Method</th>
+                        <th>Promotion/Discount</th>
+                        <th>Date</th>
+                        <th>Subtotal</th>
+                        <th>Sale tax</th>
+                        <th>Total</th>
+                        <th>Edit Invoice</th>
+                        <th>Delete Invoice</th>
+                    </tr>
+                </thead>
+                <tbody id="DetInvoice">
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <p id="counter"></p>
+
+
+
+
+    <script src="~/Scripts/App/Invoice.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+
+        getInvoices();
+        loadData();
+       
+
+
+    </script>
+
+</body>
+
+</html>
+

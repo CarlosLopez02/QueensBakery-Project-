@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "ManagerPanel";
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manager Panel</title>
+    <meta charset="UTF-8">
+    <meta name="carlos" content="Manager Panel">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/CSS/DataPanel.css">
+</head>
+
+<body>
+    <h1>Manager Panel <img id="manager_img" src="https://cdn-icons-png.flaticon.com/512/2503/2503707.png" /></h1>
+
+    <div id="parentContainer">
+        <div id="OptionContainer">
+            <ul>
+                <li>
+                    <p>Manage Desserts, Drinks, Customers and Users</p>
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/DessertData';">Desserts management</button>
+                    <br />
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/DrinksData';">Drinks management</button>
+                    <br />
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/CustomersData';">Customers management</button>
+                    <br />
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/UserDataManager';">User barista management</button>
+                    <br />
+
+                </li>
+                <li>
+                    <p>View bills</p>
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/InvoiceData';">Invoice Information</button>
+                </li>
+                <li>
+                    <p>View Reports</p>
+                    <button id="buttonid" onclick="window.location.href='../ManageDataBakery/ReportsView';">reports</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+
+        localStorage.setItem("myRol", 2);
+    </script>
+
+    <script src="~/Scripts/App/Invoice.js" asp-append-version="true"></script>
+
+
+
+
+
+
+</body>
+</html>
+

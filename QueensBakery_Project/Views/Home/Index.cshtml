@@ -1,0 +1,45 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>QueenBakery Project</title>
+        <meta charset="UTF-8">
+        <meta name="carlos" content="Login page">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/CSS/LoginStylesheet.css">
+    </head>
+
+    <body>
+        <h1>Queen's Bakery <img id="coffe-gif"src="https://ugokawaii.com/wp-content/uploads/2022/10/hot-coffee.gif"/></h1>
+
+        <div id="Container">
+            <div id="sub-container">
+                <form action="javascript:void(0);" method="POST" onsubmit="getLogin()">
+                    <label for="Code">Enter your code :</label><br>
+                    <input type="text" id="codefield" name="usercode"><br>
+                    <label for="password">Enter your password :</label><br>
+                    <input type="password" id="pass_field" name="userpassword"><br>
+                    <input id="submit-btn" type="submit" value="Log in">
+                    <p id="error-message"></p>
+                    <label for="Registration" id="registrate" name="registration">
+
+                        <br />
+                        Don't have an account?
+                        <br />
+                        <a id="link-regis"href="/Home/User_registration">Register here</a>
+                    </label>
+
+                </form>
+                
+
+            </div>
+     
+        </div>
+
+
+        <script src="~/Scripts/App/Users.js" asp-append-version="true"></script>
+
+
+    </body>
+</html>

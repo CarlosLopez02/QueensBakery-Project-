@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d17cfea19ea41e1b4492774e70e5468" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="QueensBakeryModel.Bakery_clients" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.Bakery_Desserts" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.Bakery_Drinks" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.Client_Bill" Width="1.5" PointX="6" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.Client_Order" Width="2.875" PointX="5.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.payment_methods" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.Promos_discounts" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.Role" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QueensBakeryModel.Users_Bakery" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="QueensBakeryModel.BakeryClients_promo_discounts" ManuallyRouted="false" />
+        <AssociationConnector Association="QueensBakeryModel.ClienOrder_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="QueensBakeryModel.Dessert_promo_discount" ManuallyRouted="false" />
+        <AssociationConnector Association="QueensBakeryModel.Drinks_promo_disc" ManuallyRouted="false" />
+        <AssociationConnector Association="QueensBakeryModel.ClientBill_paymentMethods" ManuallyRouted="false" />
+        <AssociationConnector Association="QueensBakeryModel.ClientBill_promo_discount" ManuallyRouted="false" />
+        <AssociationConnector Association="QueensBakeryModel.User_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="QueensBakeryModel.OrddessertId_dessertId" />
+        <AssociationConnector Association="QueensBakeryModel.Orddrinkcode_drinkCode" />
+        <AssociationConnector Association="QueensBakeryModel.BOrdNum_ordNum" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
